@@ -1,0 +1,10 @@
+GC 监控
+sudo /usr/local/java/bin/jstat -gcutil <pid> <milliseconds> <times>
+
+JVM内存MAT分析文件导出
+sudo -u username /usr/local/java/bin/jmap -dump:live,format=b,file=/tmp/dump.[pid] <pid>
+sudo -u username /usr/local/java/bin/jmap -histo <pid> |more
+sudo -u username /usr/local/java/bin/jstack -l <pid> > ~/<pid>.log
+
+对象数量
+sudo /usr/local/java/bin/jmap -F -histo <pid> |more

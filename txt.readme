@@ -1,0 +1,2 @@
+#统计当前目录下（含子目录）中所有txt后缀的文件行数
+find . -type f -name "*.txt" | xargs wc -l

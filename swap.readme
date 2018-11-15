@@ -1,0 +1,7 @@
+系统io问题排查
+iostat -x 1
+
+大量Swap定位问题进程pid
+for i in `cd /proc;ls |grep "^[0-9]"|awk '$0>100'`; \
+do awk '/Swap:/{a+=$2}END{print '"$i"', a/1024"M"}' /proc/$i/smaps; \
+done |sort -k2n
